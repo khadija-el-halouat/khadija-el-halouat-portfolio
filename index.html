@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Khadija EL HALOUAT – Électronique & Systèmes embarqués">
+  <title>Khadija EL HALOUAT | Électronique & Systèmes embarqués</title>
+  <style>
+    :root{
+      --navy:#0b1c36;
+      --navy-2:#15315c;
+      --blue:#2454a6;
+      --steel:#4a5b73;
+      --bg:#f6f7f9;
+      --card:#ffffff;
+      --text:#1b2430;
+      --muted:#5b6472;
+      --line:#e2e5eb;
+      --shadow:0 10px 28px rgba(15,23,42,.07);
+      --radius:14px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.65;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(229,234,242,.85);
+    }
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:900;color:var(--navy);font-size:1.1rem}
+    .logo span{color:var(--blue)}
+    .navlinks{display:flex;gap:24px;list-style:none;font-size:.93rem;font-weight:600;color:#475569}
+    .navlinks a:hover{color:var(--blue)}
+    .hero{
+      min-height:calc(100vh - 72px);
+      display:flex;flex-direction:column;justify-content:center;
+      padding:80px 0;
+      position:relative;overflow:hidden;
+    }
+    .hero:before,.hero:after{
+      content:"";position:absolute;border-radius:50%;filter:blur(3px);z-index:-1
+    }
+    .hero:before{width:380px;height:380px;background:#e3e9f3;right:-130px;top:-100px}
+    .hero:after{width:300px;height:300px;background:#eaedf2;left:-170px;bottom:-120px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 14px;border-radius:999px;background:#eaeff6;color:var(--navy);
+      font-size:.86rem;font-weight:800;margin-bottom:20px
+    }
+    h1{font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.02;color:var(--navy);letter-spacing:-2px}
+    h1 span{color:var(--blue)}
+    .hero h2{font-size:1.35rem;color:#334155;margin:20px 0 14px}
+    .hero p{max-width:680px;color:var(--muted);font-size:1.05rem}
+    .buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:13px 20px;border-radius:13px;font-weight:800;transition:.2s
+    }
+    .btn.primary{background:var(--navy);color:white}
+    .btn.primary:hover{transform:translateY(-2px);background:#0f1b33}
+    .btn.secondary{background:white;border:1px solid var(--line);color:var(--navy)}
+    .btn.secondary:hover{border-color:#b8c5da;transform:translateY(-2px)}
+    .hero-card{
+      background:linear-gradient(145deg,var(--navy),var(--blue));
+      color:white;border-radius:22px;padding:32px;box-shadow:var(--shadow);
+      position:relative;overflow:hidden
+    }
+    .hero-card:before{
+      content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(255,255,255,.25);
+      border-radius:50%;right:-50px;top:-55px
+    }
+    .hero-card:after{
+      content:"";position:absolute;width:100px;height:100px;border:1px solid rgba(255,255,255,.2);
+      border-radius:50%;right:50px;bottom:-55px
+    }
+    .chip{display:inline-block;background:rgba(255,255,255,.13);padding:7px 11px;border-radius:999px;font-size:.8rem;margin:4px}
+    .circuit{
+      height:250px;display:grid;place-items:center;position:relative;margin-bottom:15px
+    }
+    .board{
+      width:220px;height:150px;border:2px solid rgba(255,255,255,.7);border-radius:18px;
+      position:relative;background:rgba(255,255,255,.07)
+    }
+    .board:before,.board:after{content:"";position:absolute;background:rgba(255,255,255,.7)}
+    .board:before{width:170px;height:2px;left:24px;top:73px;box-shadow:0 -42px 0 rgba(255,255,255,.45),0 42px 0 rgba(255,255,255,.45)}
+    .board:after{width:2px;height:115px;left:108px;top:16px;box-shadow:-55px 0 0 rgba(255,255,255,.25),55px 0 0 rgba(255,255,255,.25)}
+    .node{position:absolute;width:12px;height:12px;border-radius:50%;background:white;box-shadow:0 0 0 5px rgba(255,255,255,.12)}
+    .n1{left:37px;top:67px}.n2{right:37px;top:67px}.n3{left:102px;top:25px}.n4{left:102px;bottom:25px}
+    section{padding:95px 0}
+    .section-head{margin-bottom:38px}
+    .kicker{color:var(--blue);font-weight:900;text-transform:uppercase;letter-spacing:1.5px;font-size:.78rem}
+    .section-head h2{font-size:2.2rem;color:var(--navy);margin-top:7px}
+    .section-head p{color:var(--muted);max-width:720px;margin-top:8px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .info-card,.skill-card,.project-card,.education-card,.contact-card{
+      background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 25px rgba(20,33,61,.05)
+    }
+    .info-card{padding:28px}
+    .info-card h3{color:var(--navy);margin-bottom:12px}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+    .fact{background:#f8fafc;border-radius:15px;padding:15px}
+    .fact strong{display:block;color:var(--navy);font-size:.9rem}
+    .fact span{font-size:.86rem;color:var(--muted)}
+    .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .skill-card{padding:24px}
+    .skill-icon{
+      width:45px;height:45px;border-radius:13px;display:grid;place-items:center;
+      font-weight:900;color:white;margin-bottom:15px
+    }
+    .i-a{background:var(--navy)}.i-b{background:var(--blue)}.i-c{background:var(--steel)}
+    .skill-card h3{font-size:1.05rem;margin-bottom:9px;color:var(--navy)}
+    .skill-card p{color:var(--muted);font-size:.92rem}
+    .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+    .tag{padding:6px 9px;border-radius:8px;background:#f1f5f9;color:#334155;font-size:.78rem;font-weight:700}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .project-card{overflow:hidden}
+    .project-visual{height:210px;display:grid;place-items:center;position:relative;overflow:hidden;color:white}
+    .pv1{background:linear-gradient(135deg,var(--navy),var(--blue))}
+    .pv2{background:linear-gradient(135deg,var(--navy-2),var(--steel))}
+    .pv3{background:linear-gradient(135deg,var(--navy),var(--steel))}
+    .pv4{background:linear-gradient(135deg,var(--blue),var(--navy-2))}
+    .pv5{background:linear-gradient(135deg,var(--steel),var(--navy))}
+    .visual-label{font-size:1.25rem;font-weight:900;position:absolute;left:22px;bottom:18px}
+    .visual-shape{width:115px;height:75px;border:3px solid rgba(255,255,255,.85);border-radius:16px;position:relative}
+    .visual-shape:before,.visual-shape:after{content:"";position:absolute;background:rgba(255,255,255,.8)}
+    .visual-shape:before{width:70px;height:3px;left:20px;top:34px}
+    .visual-shape:after{height:50px;width:3px;left:55px;top:11px}
+    .project-body{padding:28px}
+    .project-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+    .meta-box{border:1px solid var(--line);background:#fbfdff;border-radius:12px;padding:11px 13px}
+    .meta-box b{display:block;color:var(--navy);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px}
+    .meta-box span{font-size:.85rem;color:var(--muted)}
+    .tech-title{font-weight:900;color:var(--navy);font-size:.88rem;margin-top:18px}
+    .project-result{margin-top:16px;border-left:3px solid var(--blue);padding:10px 13px;background:#f8fbff;border-radius:0 10px 10px 0;color:#475569;font-size:.88rem}
+    .technical-strip{margin-top:18px;display:flex;align-items:center;gap:13px;padding:13px;background:#f8fafc;border-radius:14px}
+    .signal-svg{width:140px;height:56px;flex:0 0 140px}
+    .equipment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .equipment-card{background:white;border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center;box-shadow:0 8px 25px rgba(20,33,61,.04)}
+    .equipment-card svg{width:90px;height:70px;margin-bottom:12px}
+    .equipment-card h3{font-size:1rem;color:var(--navy)}
+    .equipment-card p{font-size:.82rem;color:var(--muted);margin-top:5px}
+    .project-illustration{width:220px;height:135px}
+    @media(max-width:850px){.equipment-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){.equipment-grid{grid-template-columns:1fr}.project-meta{grid-template-columns:1fr}}
+    .project-number{font-size:.75rem;font-weight:900;color:var(--blue);letter-spacing:1px}
+    .project-body h3{font-size:1.3rem;color:var(--navy);margin:5px 0 9px}
+    .project-body p{color:var(--muted);font-size:.92rem}
+    .project-body ul{margin:14px 0 0 18px;color:#475569;font-size:.88rem}
+    .project-body li{margin:4px 0}
+    .project-tools{margin-top:16px}
+    .project-tools .tag{background:#eef4ff;color:#1d4ed8}
+    .education{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .education-card{padding:28px}
+    .date{color:var(--blue);font-size:.8rem;font-weight:900}
+    .education-card h3{color:var(--navy);margin:5px 0}
+    .education-card p{color:var(--muted)}
+    .highlight{
+      margin-top:14px;display:inline-block;background:#eaeff6;color:var(--navy);
+      padding:7px 10px;border-radius:9px;font-size:.8rem;font-weight:800
+    }
+    .contact-wrap{
+      background:linear-gradient(135deg,var(--navy),var(--navy-2));color:white;border-radius:22px;padding:45px;
+      display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center
+    }
+    .contact-wrap h2{font-size:2.3rem;line-height:1.1}
+    .contact-wrap p{color:#dbe5f5;margin-top:12px}
+    .contact-list{display:grid;gap:12px}
+    .contact-item{padding:14px 16px;border-radius:13px;background:rgba(255,255,255,.08);color:#f8fafc}
+    .contact-item small{display:block;color:#b9c8df;font-size:.72rem;text-transform:uppercase;font-weight:800}
+    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:.85rem}
+    @media(max-width:850px){
+      .hero,.about-grid,.education,.contact-wrap{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .skills{grid-template-columns:1fr}
+      .navlinks{display:none}
+      .hero{padding:60px 0}
+    }
+    @media(max-width:520px){
+      section{padding:70px 0}
+      .facts{grid-template-columns:1fr}
+      .contact-wrap{padding:30px}
+      h1{font-size:2.8rem}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#accueil">Khadija <span>EL HALOUAT</span></a>
+      <div class="navlinks">
+        <a href="https://www.linkedin.com/in/khadija-el-halouat-974092403" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero container" id="accueil">
+    <div>
+      <div class="eyebrow">⚡ Électronique &amp; Systèmes embarqués</div>
+      <h1>Khadija<br><span>EL HALOUAT</span></h1>
+      <h2>Étudiante en Bachelor GEII · Major de promotion</h2>
+      <p>
+        Étudiante en Bachelor GEII et major de promotion, je développe des systèmes
+        électroniques et embarqués à travers des projets mêlant conception, programmation,
+        instrumentation, simulation, intégration, tests et validation. Je recherche une
+        alternance de 24 mois pour mettre ces compétences au service de projets industriels.
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="#projets">Découvrir mes projets</a>
+        <a class="btn secondary" href="#contact">Me contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Profil</div>
+        <h2>À propos de moi</h2>
+        <p>Un profil orienté pratique, avec des projets qui couvrent l'électronique, l'embarqué, l'IoT, le numérique et la puissance.</p>
+      </div>
+      <div class="about-grid">
+        <div class="info-card">
+          <h3>Mon objectif</h3>
+          <p>
+            Intégrer une équipe en tant qu'alternante afin de mettre en pratique
+            mes connaissances techniques, participer à des projets concrets et
+            progresser dans la conception et la validation de systèmes électroniques.
+          </p>
+          <div class="facts">
+            <div class="fact"><strong>Alternance</strong><span>24 mois</span></div>
+            <div class="fact"><strong>Rythme</strong><span>15 j. université / 15 j. entreprise</span></div>
+            <div class="fact"><strong>Disponibilité</strong><span>Immédiate</span></div>
+            <div class="fact"><strong>Localisation</strong><span>Épinay-sur-Seine · Île-de-France</span></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <h3>Ce que j'aime faire</h3>
+          <p>
+            J'aime partir d'un cahier des charges, comprendre le fonctionnement
+            d'un système, réaliser les différentes étapes techniques puis effectuer
+            des mesures et des tests pour vérifier les performances.
+          </p>
+          <div class="tags">
+            <span class="tag">Intégration électronique</span>
+            <span class="tag">Programmation embarquée</span>
+            <span class="tag">Acquisition</span>
+            <span class="tag">Tests &amp; validation</span>
+            <span class="tag">Débogage</span>
+            <span class="tag">Instrumentation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Savoir-faire</div>
+        <h2>Compétences techniques</h2>
+      </div>
+      <div class="skills">
+        <article class="skill-card">
+          <div class="skill-icon i-a">⌁</div>
+          <h3>Électronique analogique &amp; numérique</h3>
+          <p>Conception, câblage et intégration de circuits électroniques, lecture et réalisation de schémas.</p>
+          <div class="tags"><span class="tag">Analogique</span><span class="tag">Numérique</span><span class="tag">Schémas</span><span class="tag">Datasheets</span></div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon i-b">⚡</div>
+          <h3>Électrotechnique &amp; électronique de puissance</h3>
+          <p>Commande moteur, modulation PWM et mise en œuvre de systèmes de puissance.</p>
+          <div class="tags"><span class="tag">Électrotechnique</span><span class="tag">Puissance</span><span class="tag">Commande moteur</span><span class="tag">PWM</span></div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon i-c">&lt;/&gt;</div>
+          <h3>Systèmes embarqués &amp; programmation</h3>
+          <p>Microcontrôleurs, développement logiciel et objets connectés communicants.</p>
+          <div class="tags"><span class="tag">ESP32</span><span class="tag">Arduino</span><span class="tag">C</span><span class="tag">Python</span><span class="tag">Wi-Fi</span><span class="tag">IoT</span></div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon i-a">⬡</div>
+          <h3>FPGA &amp; conception numérique</h3>
+          <p>Conception numérique, logique combinatoire et séquentielle sur circuits programmables.</p>
+          <div class="tags"><span class="tag">FPGA</span><span class="tag">Logique combinatoire</span><span class="tag">Logique séquentielle</span></div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon i-b">◈</div>
+          <h3>Automatisme &amp; capteurs</h3>
+          <p>Conception de séquences automatisées et interfaçage de capteurs et actionneurs.</p>
+          <div class="tags"><span class="tag">Automatisme</span><span class="tag">Grafcet</span><span class="tag">Capteurs</span><span class="tag">Actionneurs</span></div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon i-c">◉</div>
+          <h3>Tests, instrumentation &amp; mise en service</h3>
+          <p>Validation, diagnostic et mesure sur banc d'essai, jusqu'à l'intégration des composants.</p>
+          <div class="tags"><span class="tag">Oscilloscope</span><span class="tag">Multimètre</span><span class="tag">GBF</span><span class="tag">Diagnostic</span><span class="tag">Soudure</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="savoiretre">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Savoir-être</div>
+        <h2>Qualités personnelles</h2>
+        <p>Les qualités humaines qui structurent ma façon de travailler et de collaborer au quotidien.</p>
+      </div>
+      <div class="skills">
+        <article class="skill-card">
+          <div class="skill-icon i-a">✓</div>
+          <h3>Rigueur &amp; méthode</h3>
+          <p>Organisation et attention portée à chaque étape, de la conception à la validation.</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon i-b">↗</div>
+          <h3>Autonomie &amp; initiative</h3>
+          <p>Capacité à prendre en main un sujet et à avancer avec initiative sur un projet.</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon i-c">⬢</div>
+          <h3>Esprit d'équipe</h3>
+          <p>Collaboration, communication et partage d'informations au sein d'un groupe projet.</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon i-a">◎</div>
+          <h3>Curiosité technique</h3>
+          <p>Envie d'apprendre, veille technologique et goût pour la résolution de problèmes.</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon i-b">↺</div>
+          <h3>Adaptabilité</h3>
+          <p>Capacité à s'ajuster face à un imprévu ou à un nouvel environnement de travail.</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon i-c">▲</div>
+          <h3>Sens de l'analyse</h3>
+          <p>Esprit critique et méthodique face à un dysfonctionnement ou une anomalie.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="materiel">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Laboratoire &amp; mesures</div>
+        <h2>Instrumentation &amp; environnement technique</h2>
+        <p>Les équipements de mesure et les représentations de signaux occupent une place importante dans mes projets de test, de caractérisation et de validation.</p>
+      </div>
+      <div class="equipment-grid">
+        <article class="equipment-card">
+          <svg viewBox="0 0 120 90"><g fill="none" stroke="#15315c" stroke-width="3"><rect x="12" y="13" width="96" height="64" rx="8"/><rect x="23" y="24" width="58" height="40" rx="3"/><path d="M28 46c8-18 14 18 22 0s14-18 22 0"/><circle cx="94" cy="31" r="4"/><circle cx="94" cy="47" r="4"/></g></svg>
+          <h3>Oscilloscope</h3><p>Visualisation temporelle, amplitude, fréquence et contrôle des formes d'onde.</p>
+        </article>
+        <article class="equipment-card">
+          <svg viewBox="0 0 120 90"><g fill="none" stroke="#2454a6" stroke-width="3"><rect x="15" y="18" width="90" height="55" rx="8"/><path d="M25 46c10-22 20 22 30 0s20-22 30 0"/><circle cx="94" cy="33" r="4"/></g></svg>
+          <h3>GBF</h3><p>Génération de signaux pour essais, filtrage et caractérisation fréquentielle.</p>
+        </article>
+        <article class="equipment-card">
+          <svg viewBox="0 0 120 90"><g fill="none" stroke="#4a5b73" stroke-width="3"><rect x="31" y="9" width="58" height="70" rx="9"/><rect x="42" y="20" width="36" height="18" rx="3"/><path d="M48 53h24M60 43v20"/><circle cx="60" cy="68" r="5"/></g></svg>
+          <h3>Multimètre</h3><p>Mesure de tensions, courants et contrôle électrique lors des phases de test.</p>
+        </article>
+        <article class="equipment-card">
+          <svg viewBox="0 0 120 90"><g fill="none" stroke="#0b1c36" stroke-width="3"><path d="M7 48h14l7-24 12 48 12-42 10 36 10-18h41"/><path d="M8 76h104"/></g></svg>
+          <h3>Analyse des signaux</h3><p>Lecture de formes d'onde, réponse en fréquence et comparaison théorie/mesure.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Réalisations</div>
+        <h2>Mes projets universitaires</h2>
+        <p>Des projets permettant de mettre en pratique la programmation, l'électronique, l'instrumentation, la simulation et la validation.</p>
+      </div>
+
+      <div class="projects">
+        <article class="project-card">
+          <div class="project-visual pv2"><svg class="project-illustration" viewBox="0 0 240 145" aria-label="Illustration station IoT">
+<g fill="none" stroke="white" stroke-width="3">
+<rect x="74" y="38" width="92" height="70" rx="12"/><path d="M95 58h50M95 74h50M95 90h32"/>
+<path d="M120 38V20"/><path d="M105 25c8-8 22-8 30 0M97 17c13-14 33-14 46 0"/>
+<path d="M45 85c18-11 40-11 58 0M137 85c18-11 40-11 58 0"/>
+<circle cx="43" cy="86" r="5"/><circle cx="197" cy="86" r="5"/>
+</g></svg><div class="visual-label">IoT &amp; ESP32</div></div>
+          <div class="project-body">
+            <div class="project-number">PROJET 01</div>
+            <h3>Station IoT Connectée &amp; Affichage Dynamique</h3>
+            <p><strong>Objectif :</strong> réaliser une station connectée capable de mesurer des grandeurs environnementales, de communiquer par Wi-Fi et d'afficher des informations actualisées.</p>
+            <div class="project-meta"><div class="meta-box"><b>Plateforme</b><span>ESP32 + capteurs environnementaux</span></div><div class="meta-box"><b>Communication</b><span>Wi-Fi + API Web</span></div></div>
+            <div class="tech-title">Travail réalisé</div><ul>
+              <li>Station IoT basée sur ESP32.</li>
+              <li>Acquisition de température, humidité et luminosité.</li>
+              <li>Communication Wi-Fi et intégration d'une API Web.</li>
+              <li>Tests de communication, contrôle de cohérence des données et validation du fonctionnement de l'ensemble.</li>
+            </ul><div class="project-result"><strong>Apports :</strong> acquisition multicapteurs, communication réseau, intégration matériel/logiciel et validation d'un système IoT complet.</div>
+            <div class="tags project-tools"><span class="tag">ESP32</span><span class="tag">C</span><span class="tag">Wi-Fi</span><span class="tag">API Web</span><span class="tag">IoT</span></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual pv1"><svg class="project-illustration" viewBox="0 0 240 145" aria-label="Illustration robot autonome">
+<g fill="none" stroke="white" stroke-width="3">
+<rect x="55" y="42" width="130" height="65" rx="15"/><circle cx="78" cy="115" r="15"/><circle cx="162" cy="115" r="15"/>
+<circle cx="92" cy="65" r="7"/><circle cx="148" cy="65" r="7"/><path d="M105 88h30"/>
+<path d="M35 59c-17 7-17 25 0 32M205 59c17 7 17 25 0 32"/><path d="M120 42V24m-10 0h20"/>
+</g></svg><div class="visual-label">Robotique embarquée</div></div>
+          <div class="project-body">
+            <div class="project-number">PROJET 02</div>
+            <h3>Robot Mobile Autonome</h3>
+            <p><strong>Objectif :</strong> concevoir un robot mobile autonome capable d'analyser son environnement et d'adapter sa trajectoire sans intervention humaine.</p>
+            <div class="project-meta"><div class="meta-box"><b>Architecture</b><span>Microcontrôleur + capteurs + actionneurs</span></div><div class="meta-box"><b>Démarche</b><span>Intégration, programmation, essais et débogage</span></div></div>
+            <div class="tech-title">Travail réalisé</div><ul>
+              <li>Programmation d'un microcontrôleur en C pour le traitement en temps réel.</li>
+              <li>Détection des obstacles avec capteurs infrarouges et ultrasonores.</li>
+              <li>Intégration capteurs-actionneurs et adaptation de la trajectoire.</li>
+              <li>Débogage et tests du comportement global pour vérifier la robustesse des décisions de navigation.</li>
+            </ul><div class="project-result"><strong>Apports :</strong> programmation embarquée en temps réel, logique algorithmique, interprétation de données capteurs et résolution méthodique des anomalies.</div>
+            <div class="tags project-tools"><span class="tag">C</span><span class="tag">Arduino</span><span class="tag">Capteurs</span><span class="tag">Actionneurs</span><span class="tag">Débogage</span></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual pv3"><svg class="project-illustration" viewBox="0 0 240 145" aria-label="Illustration FPGA">
+<g fill="none" stroke="white" stroke-width="3">
+<rect x="74" y="34" width="92" height="76" rx="8"/>
+<rect x="98" y="56" width="44" height="34" rx="4"/>
+<path d="M74 48H53m21 16H53m21 16H53m21 16H53M166 48h21m-21 16h21m-21 16h21m-21 16h21"/>
+<path d="M90 34V18m18 16V18m18 16V18m18 16V18M90 110v16m18-16v16m18-16v16m18-16v16"/>
+</g></svg><div class="visual-label">FPGA &amp; logique numérique</div></div>
+          <div class="project-body">
+            <div class="project-number">PROJET 03</div>
+            <h3>Conception de Circuit Numérique sur FPGA</h3>
+            <p><strong>Objectif :</strong> traduire un cahier des charges fonctionnel en architecture logique numérique puis vérifier son comportement sur une carte FPGA.</p>
+            <div class="project-meta"><div class="meta-box"><b>Conception</b><span>Logique combinatoire et séquentielle</span></div><div class="meta-box"><b>Validation</b><span>Simulation puis implémentation FPGA</span></div></div>
+            <div class="tech-title">Travail réalisé</div><ul>
+              <li>Analyse d'un cahier des charges et définition des conditions de fonctionnement.</li>
+              <li>Conception de circuits logiques combinatoires et séquentiels.</li>
+              <li>Simulation avec Quartus II et ModelSim.</li>
+              <li>Implémentation sur carte FPGA puis campagne de tests pour vérifier chaque condition définie dans le cahier des charges.</li>
+            </ul><div class="project-result"><strong>Apports :</strong> passage d'une spécification fonctionnelle à une architecture matérielle, simulation numérique et validation sur cible réelle.</div>
+            <div class="tags project-tools"><span class="tag">Quartus II</span><span class="tag">ModelSim</span><span class="tag">FPGA</span><span class="tag">Logique numérique</span></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual pv4"><svg class="project-illustration" viewBox="0 0 240 145" aria-label="Illustration commande moteur PWM">
+<g fill="none" stroke="white" stroke-width="3">
+<circle cx="152" cy="74" r="38"/><text x="141" y="82" fill="white" stroke="none" font-size="24" font-weight="700">M</text>
+<path d="M42 93V50h22v43h22V50h22v43h22"/>
+<path d="M190 74h28"/><path d="M207 64l11 10-11 10"/>
+</g></svg><div class="visual-label">Électronique de puissance</div></div>
+          <div class="project-body">
+            <div class="project-number">PROJET 04</div>
+            <h3>Contrôle &amp; Régulation de Vitesse d'un Moteur</h3>
+            <p><strong>Objectif :</strong> concevoir et caractériser une chaîne de commande permettant de régler la vitesse d'un moteur électrique à l'aide d'une commande PWM.</p>
+            <div class="project-meta"><div class="meta-box"><b>Simulation</b><span>Modélisation sous PSIM</span></div><div class="meta-box"><b>Mesures</b><span>Oscilloscope + multimètre</span></div></div>
+            <div class="tech-title">Travail réalisé</div><ul>
+              <li>Modélisation et simulation du système sous PSIM.</li>
+              <li>Développement d'une commande PWM.</li>
+              <li>Assemblage et câblage du variateur de vitesse.</li>
+              <li>Mesures électriques, comparaison simulation/expérience et validation du comportement du système.</li>
+            </ul><div class="project-result"><strong>Apports :</strong> électronique de puissance, génération PWM, câblage d'un variateur, métrologie et analyse de performances sur banc d'essai.</div>
+            <div class="tags project-tools"><span class="tag">PSIM</span><span class="tag">PWM</span><span class="tag">Oscilloscope</span><span class="tag">Multimètre</span></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual pv5"><svg class="project-illustration" viewBox="0 0 240 145" aria-label="Illustration filtrage analogique">
+<g fill="none" stroke="white" stroke-width="3">
+<path d="M20 76c10-34 20 34 30 0s20-34 30 0 20 34 30 0 20-34 30 0"/>
+<path d="M150 76c12-20 24 20 36 0s24-20 36 0"/>
+<path d="M135 40v72"/><path d="M128 48l7-8 7 8M128 104l7 8 7-8"/>
+</g></svg><div class="visual-label">Électronique analogique</div></div>
+          <div class="project-body">
+            <div class="project-number">PROJET 05</div>
+            <h3>Traitement du Signal &amp; Filtrage Électronique</h3>
+            <p><strong>Objectif :</strong> dimensionner puis caractériser un filtre analogique afin d'atténuer certaines composantes fréquentielles et conserver la bande utile du signal.</p>
+            <div class="project-meta"><div class="meta-box"><b>Étude</b><span>Calcul et dimensionnement des composants</span></div><div class="meta-box"><b>Caractérisation</b><span>Réponse fréquentielle au GBF + oscilloscope</span></div></div>
+            <div class="tech-title">Travail réalisé</div><ul>
+              <li>Analyse du signal et identification des fréquences à filtrer.</li>
+              <li>Calcul et dimensionnement des composants.</li>
+              <li>Câblage du filtre sur carte électronique.</li>
+              <li>Mesure de la réponse en fréquence, observation du gain et analyse des résultats expérimentaux.</li>
+            </ul><div class="project-result"><strong>Apports :</strong> électronique analogique, traitement du signal, dimensionnement de composants et lecture expérimentale de la réponse d'un circuit.</div>
+            <div class="tags project-tools"><span class="tag">Traitement du signal</span><span class="tag">GBF</span><span class="tag">Oscilloscope</span><span class="tag">Dimensionnement</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="formation">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Parcours</div>
+        <h2>Formation</h2>
+      </div>
+      <div class="education">
+        <article class="education-card">
+          <div class="date">2025 — 2028</div>
+          <h3>Bachelor Génie Électrique et Informatique Industrielle (GEII)</h3>
+          <p>Université Sorbonne Paris Nord</p>
+          <span class="highlight">Major de promotion</span>
+        </article>
+        <article class="education-card">
+          <div class="date">2025</div>
+          <h3>Baccalauréat International – Sciences Physiques</h3>
+          <p>Lycée ANNASR, Taza, Maroc</p>
+          <span class="highlight">Mention Très Bien</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-wrap">
+        <div>
+          <div class="kicker" style="color:#93c5fd">Contact</div>
+          <h2>Construisons un projet ensemble.</h2>
+          <p>
+            Je suis disponible pour échanger au sujet d'une alternance en
+            électronique et systèmes embarqués.
+          </p>
+        </div>
+        <div class="contact-list">
+          <a class="contact-item" href="mailto:khadija.elhalouat07@gmail.com">
+            <small>Email</small>khadija.elhalouat07@gmail.com
+          </a>
+          <a class="contact-item" href="https://www.linkedin.com/in/khadija-el-halouat-974092403" target="_blank" rel="noopener">
+            <small>LinkedIn</small>linkedin.com/in/khadija-el-halouat
+          </a>
+          <a class="contact-item" href="tel:+33780644633">
+            <small>Téléphone</small>07 80 64 46 33
+          </a>
+          <div class="contact-item">
+            <small>Localisation</small>93800 Épinay-sur-Seine
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© 2026 Khadija EL HALOUAT · Électronique &amp; Systèmes embarqués</div>
+</footer>
+
+</body>
+</html>
