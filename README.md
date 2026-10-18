@@ -1,29 +1,41 @@
 # Portfolio — Khadija EL HALOUAT
 
-Portfolio personnel présentant mon parcours, mes compétences et mes projets en **Génie Électrique et Informatique Industrielle (GEII)**.
+Portfolio personnel présentant mon parcours en **BUT Génie Électrique et Informatique Industrielle (GEII)**, mes compétences techniques et mes projets universitaires.
 
-🌐 **Voir le portfolio en ligne :** https://khadija-el-halouat.github.io/khadija-el-halouat-portfolio/
+🌐 **Site publié :** https://khadija-el-halouat.github.io/khadija-el-halouat-portfolio/  
+👩‍💻 **Profil GitHub :** https://github.com/khadija-el-halouat  
+💼 **LinkedIn :** https://www.linkedin.com/in/khadija-el-halouat-974092403
 
-## Domaines
+## Contenu du site
 
-- Électronique analogique et numérique
-- Systèmes embarqués et programmation en C
-- Électrotechnique et commande moteur
-- Instrumentation, essais et mesures
-- Automatisme et acquisition de données
+- Présentation du profil et de la formation
+- Compétences en électronique, systèmes embarqués, électrotechnique et instrumentation
+- Projets universitaires avec objectifs, démarche et technologies
+- Équipements de mesure utilisés dans les travaux pratiques
+- Liens vers les dépôts GitHub et les moyens de contact
 
 ## Technologies
 
-Le site est publié avec GitHub Pages. Le code source de la page principale se trouve dans `index.html`.
+- HTML5
+- CSS3 : mise en page responsive et styles personnalisés
+- JavaScript : menu de navigation mobile
+- GitHub Pages : hébergement du site statique
 
-## Projets GitHub
+## Modifier le portfolio
 
-- [Station météo connectée](https://github.com/khadija-el-halouat/Station-meteo)
+Le site est principalement contenu dans `index.html`.
+
+1. Ouvrir `index.html` et modifier la section concernée.
+2. Vérifier les liens, l'affichage mobile et l'orthographe.
+3. Enregistrer les modifications sur la branche `main`.
+4. GitHub Pages republie le site selon la configuration du dépôt.
+
+## Projets présentés
+
+- [Station météo connectée — ESP32](https://github.com/khadija-el-halouat/Station-meteo)
 - [Robot aspirateur autonome](https://github.com/khadija-el-halouat/Robot-aspirateur-Roomba-)
-- [Système d’alarme numérique](https://github.com/khadija-el-halouat/Alarme)
-- [Commande moteur / vélo à assistance électrique](https://github.com/khadija-el-halouat/Velo-assistance-electrique)
+- [Système d'alarme numérique sur FPGA](https://github.com/khadija-el-halouat/Alarme)
+- [Commande moteur — vélo à assistance électrique](https://github.com/khadija-el-halouat/Velo-assistance-electrique)
 
-## Contact
-
-- [LinkedIn](https://www.linkedin.com/in/khadija-el-halouat-974092403)
-- [Email](mailto:khadija.elhalouat07@gmail.com)
+---
+*Portfolio pédagogique et professionnel — Khadija EL HALOUAT.*
