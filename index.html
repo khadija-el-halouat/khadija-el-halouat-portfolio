@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio de Khadija EL HALOUAT, étudiante en GEII : électronique, systèmes embarqués, électrotechnique, instrumentation, essais et mesures.">
+  <meta name="description" content="Portfolio de Khadija EL HALOUAT, étudiante en BUT GEII : projets en électronique, systèmes embarqués, électrotechnique, instrumentation, essais et mesures.">
+  <meta name="theme-color" content="#0b1c36">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Khadija EL HALOUAT | Portfolio GEII">
+  <meta property="og:description" content="Découvrez mes projets universitaires en électronique, systèmes embarqués, logique numérique et électronique de puissance.">
+  <meta property="og:url" content="https://khadija-el-halouat.github.io/khadija-el-halouat-portfolio/">
   <title>Khadija EL HALOUAT | Portfolio GEII – Électronique & Génie électrique</title>
   <style>
     :root{
@@ -40,6 +45,12 @@
     .logo span{color:var(--blue)}
     .navlinks{display:flex;gap:24px;list-style:none;font-size:.93rem;font-weight:600;color:#475569}
     .navlinks a:hover{color:var(--blue)}
+    .nav-toggle{display:none;background:white;border:1px solid var(--line);border-radius:10px;padding:8px 11px;color:var(--navy);font:inherit;font-weight:800;cursor:pointer}
+    .project-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .project-link{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;color:var(--navy);font-size:.84rem;font-weight:800;transition:.2s}
+    .project-link:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
+    .project-link.primary-link{background:var(--navy);border-color:var(--navy);color:#fff}
+    .project-link.primary-link:hover{background:var(--blue);border-color:var(--blue);color:#fff}
     .hero{
       min-height:calc(100vh - 72px);
       display:flex;flex-direction:column;justify-content:center;
@@ -181,7 +192,11 @@
       .hero,.about-grid,.education,.contact-wrap{grid-template-columns:1fr}
       .projects{grid-template-columns:1fr}
       .skills{grid-template-columns:1fr}
-      .navlinks{display:none}
+      nav{position:relative}
+      .nav-toggle{display:inline-flex}
+      .navlinks{display:none;position:absolute;top:64px;right:0;left:0;flex-direction:column;gap:0;padding:8px;background:white;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+      .navlinks.open{display:flex}
+      .navlinks a{padding:11px 12px}
       .hero{padding:60px 0}
     }
     @media(max-width:520px){
@@ -198,11 +213,15 @@
   <div class="container">
     <nav>
       <a class="logo" href="#accueil">Khadija <span>EL HALOUAT</span></a>
-      <div class="navlinks">
+      <div class="navlinks" id="navigation-principale">
+        <a href="#apropos">Profil</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
         <a href="https://github.com/khadija-el-halouat" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/khadija-el-halouat-974092403" target="_blank" rel="noopener">LinkedIn</a>
         <a href="#contact">Contact</a>
       </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu ☰</button>
     </nav>
   </div>
 </header>
@@ -408,6 +427,7 @@
               <li>Tests de communication, contrôle de cohérence des données et validation du fonctionnement de l'ensemble.</li>
             </ul><div class="project-result"><strong>Apports :</strong> acquisition multicapteurs, communication réseau, intégration matériel/logiciel et validation d'un système IoT complet.</div>
             <div class="tags project-tools"><span class="tag">ESP32</span><span class="tag">C</span><span class="tag">Wi-Fi</span><span class="tag">API Web</span><span class="tag">IoT</span></div>
+            <div class="project-links"><a class="project-link primary-link" href="https://github.com/khadija-el-halouat/Station-meteo" target="_blank" rel="noopener">Voir le dépôt GitHub ↗</a></div>
           </div>
         </article>
 
@@ -430,6 +450,7 @@
               <li>Débogage et tests du comportement global pour vérifier la robustesse des décisions de navigation.</li>
             </ul><div class="project-result"><strong>Apports :</strong> programmation embarquée en temps réel, logique algorithmique, interprétation de données capteurs et résolution méthodique des anomalies.</div>
             <div class="tags project-tools"><span class="tag">C</span><span class="tag">Arduino</span><span class="tag">Capteurs</span><span class="tag">Actionneurs</span><span class="tag">Débogage</span></div>
+            <div class="project-links"><a class="project-link primary-link" href="https://github.com/khadija-el-halouat/Robot-aspirateur-Roomba-" target="_blank" rel="noopener">Voir le dépôt GitHub ↗</a></div>
           </div>
         </article>
 
@@ -453,6 +474,7 @@
               <li>Implémentation sur carte FPGA puis campagne de tests pour vérifier chaque condition définie dans le cahier des charges.</li>
             </ul><div class="project-result"><strong>Apports :</strong> passage d'une spécification fonctionnelle à une architecture matérielle, simulation numérique et validation sur cible réelle.</div>
             <div class="tags project-tools"><span class="tag">Quartus II</span><span class="tag">ModelSim</span><span class="tag">FPGA</span><span class="tag">Logique numérique</span></div>
+            <div class="project-links"><a class="project-link primary-link" href="https://github.com/khadija-el-halouat/Alarme" target="_blank" rel="noopener">Voir le dépôt GitHub ↗</a></div>
           </div>
         </article>
 
@@ -475,6 +497,7 @@
               <li>Mesures électriques, comparaison simulation/expérience et validation du comportement du système.</li>
             </ul><div class="project-result"><strong>Apports :</strong> électronique de puissance, génération PWM, câblage d'un variateur, métrologie et analyse de performances sur banc d'essai.</div>
             <div class="tags project-tools"><span class="tag">PSIM</span><span class="tag">PWM</span><span class="tag">Oscilloscope</span><span class="tag">Multimètre</span></div>
+            <div class="project-links"><a class="project-link primary-link" href="https://github.com/khadija-el-halouat/Velo-assistance-electrique" target="_blank" rel="noopener">Voir le dépôt GitHub ↗</a></div>
           </div>
         </article>
 
@@ -497,6 +520,7 @@
               <li>Mesure de la réponse en fréquence, observation du gain et analyse des résultats expérimentaux.</li>
             </ul><div class="project-result"><strong>Apports :</strong> électronique analogique, traitement du signal, dimensionnement de composants et lecture expérimentale de la réponse d'un circuit.</div>
             <div class="tags project-tools"><span class="tag">Traitement du signal</span><span class="tag">GBF</span><span class="tag">Oscilloscope</span><span class="tag">Dimensionnement</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/khadija-el-halouat" target="_blank" rel="noopener">Autres dépôts ↗</a></div>
           </div>
         </article>
       </div>
@@ -560,5 +584,21 @@
   <div class="container">© 2026 Khadija EL HALOUAT · Génie électrique, électronique &amp; systèmes embarqués</div>
 </footer>
 
+<script>
+  const menuButton = document.querySelector('.nav-toggle');
+  const navigation = document.querySelector('.navlinks');
+  menuButton.addEventListener('click', () => {
+    const isOpen = navigation.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.textContent = isOpen ? 'Fermer ✕' : 'Menu ☰';
+  });
+  navigation.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navigation.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = 'Menu ☰';
+    });
+  });
+</script>
 </body>
 </html>
