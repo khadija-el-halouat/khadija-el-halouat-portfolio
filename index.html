@@ -160,6 +160,7 @@
     .equipment-card h3{font-size:1rem;color:var(--navy)}
     .equipment-card p{font-size:.82rem;color:var(--muted);margin-top:5px}
     .project-illustration{width:220px;height:135px}
+    .alarm-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}.alarm-gallery figure{margin:0;border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}.alarm-gallery img{display:block;width:100%;height:170px;object-fit:contain;padding:8px;background:#f8fafc}.alarm-gallery figcaption{padding:9px 11px;color:var(--muted);font-size:.8rem;font-weight:700}@media(max-width:520px){.alarm-gallery{grid-template-columns:1fr}.alarm-gallery img{height:190px}}
     @media(max-width:850px){.equipment-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:520px){.equipment-grid{grid-template-columns:1fr}.project-meta{grid-template-columns:1fr}}
     .project-number{font-size:.75rem;font-weight:900;color:var(--blue);letter-spacing:1px}
@@ -543,6 +544,41 @@
               <li>Mesures électriques, comparaison simulation/expérience et validation du comportement du système.</li>
             </ul><div class="project-result"><strong>Apports :</strong> électronique de puissance, génération PWM, câblage d'un variateur, métrologie et analyse de performances sur banc d'essai.</div>
             <div class="tags project-tools"><span class="tag">PSIM</span><span class="tag">PWM</span><span class="tag">Oscilloscope</span><span class="tag">Multimètre</span></div>
+          </div>
+        </article>
+
+
+        <article class="project-card">
+          <div class="project-visual pv3">
+            <img src="images/alarme-carte-fpga.svg" alt="Carte FPGA DE1 Altera utilisée pour le projet d'alarme" style="width:100%;height:100%;object-fit:contain;padding:12px;background:#f8fafc">
+            <div class="visual-label">Logique numérique &amp; FPGA</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">PROJET 07</div>
+            <h3>Conception d'un système d'alarme numérique sur FPGA</h3>
+            <p><strong>Objectif :</strong> concevoir et implémenter une fonction logique d'alarme à partir de plusieurs signaux d'entrée, en traduisant les conditions de déclenchement en équations logiques puis en circuit numérique.</p>
+            <div class="project-meta">
+              <div class="meta-box"><b>Carte</b><span>DE1 Altera · Cyclone II</span></div>
+              <div class="meta-box"><b>Environnement</b><span>Quartus II · schéma BDF</span></div>
+            </div>
+            <div class="tech-title">Démarche de réalisation</div>
+            <ul>
+              <li>Analyse des états des entrées et définition de la condition de déclenchement de l'alarme.</li>
+              <li>Établissement de la table de vérité pour représenter les combinaisons possibles.</li>
+              <li>Élaboration du schéma logique à partir de portes NOT et AND.</li>
+              <li>Association des signaux d'entrée et génération du signal de sortie de l'alarme.</li>
+              <li>Compilation du projet sous Quartus II et préparation de l'implémentation sur la carte DE1 Altera.</li>
+            </ul>
+            <div class="project-result"><strong>Résultat documenté :</strong> le rapport Quartus II fourni indique que l'analyse et la synthèse ont été réalisées avec succès. La carte FPGA et les schémas de conception sont présentés ci-dessous.</div>
+            <div class="tags project-tools"><span class="tag">FPGA</span><span class="tag">Altera DE1</span><span class="tag">Cyclone II</span><span class="tag">Quartus II</span><span class="tag">Logique combinatoire</span><span class="tag">Table de vérité</span></div>
+            <div class="tech-title">Illustrations de la réalisation</div>
+            <div class="alarm-gallery">
+              <figure><img src="images/alarme-carte-fpga.svg" alt="Carte FPGA DE1 Altera"><figcaption>Carte FPGA DE1 Altera</figcaption></figure>
+              <figure><img src="images/alarme-schema-logique.svg" alt="Schéma logique de l'alarme"><figcaption>Schéma logique et portes combinatoires</figcaption></figure>
+              <figure><img src="images/alarme-table-verite.svg" alt="Table de vérité de l'alarme"><figcaption>Table de vérité</figcaption></figure>
+              <figure><img src="images/alarme-compilation.svg" alt="Compilation réussie sous Quartus II"><figcaption>Rapport de compilation Quartus II</figcaption></figure>
+            </div>
+            <div class="project-links"><a class="project-link primary-link" href="https://github.com/khadija-el-halouat/Alarme" target="_blank" rel="noopener">Voir le dépôt du projet</a></div>
           </div>
         </article>
 
