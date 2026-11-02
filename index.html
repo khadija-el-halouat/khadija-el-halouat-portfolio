@@ -555,54 +555,30 @@
             <div class="visual-label">Contrôle d'accès · Alarme numérique · FPGA</div>
           </div>
           <div class="project-body">
-            <div class="project-number">PROJET 07 · SAE ALARME 1.01</div>
-            <h3>Conception d'un système de contrôle d'accès avec alarme sur FPGA</h3>
-            <p><strong>Objectif :</strong> concevoir un système numérique qui sécurise l'ouverture d'une porte à l'aide d'un code binaire de 4 bits défini par un administrateur. Le système vérifie la validité du code administrateur, compare le code saisi par l'utilisateur au code enregistré et commande l'ouverture de la porte ou le déclenchement de l'alarme.</p>
+            <div class="project-number">PROJET 07 · FPGE</div>
+            <h3>Système de contrôle d'accès et de commande d'ouverture d'une porte sur FPGA</h3>
+            <p><strong>Objectif :</strong> concevoir un système numérique de contrôle d'accès capable de vérifier un code administrateur et un code utilisateur, puis d'autoriser l'ouverture de la porte ou de déclencher une alarme selon les conditions définies dans le cahier des charges.</p>
             <div class="project-meta">
-              <div class="meta-box"><b>Support matériel</b><span>Carte Altera DE1 · FPGA Cyclone II</span></div>
-              <div class="meta-box"><b>Logiciel</b><span>Quartus II · schémas BDF · simulation</span></div>
+              <div class="meta-box"><b>Plateforme</b><span>Carte FPGA Altera DE1 · Cyclone II</span></div>
+              <div class="meta-box"><b>Logiciels</b><span>Quartus II · ModelSim</span></div>
             </div>
-            <div class="tech-title">Principe de fonctionnement</div>
-            <ol>
-              <li><strong>Définition du code administrateur :</strong> l'administrateur saisit un code binaire de 4 bits à l'aide des interrupteurs de la carte. Le signal GO_M permet de valider cette saisie.</li>
-              <li><strong>Contrôle de validité :</strong> le code administrateur doit contenir au moins deux bits à 1 consécutifs. Si cette condition n'est pas respectée, l'alarme est déclenchée et la porte reste verrouillée.</li>
-              <li><strong>Saisie du code utilisateur :</strong> l'utilisateur entre à son tour un code de 4 bits. Le signal GO_C indique la validation de sa saisie.</li>
-              <li><strong>Comparaison :</strong> un bloc dédié compare le code utilisateur au code enregistré. Une différence entraîne une erreur et interdit l'ouverture.</li>
-              <li><strong>Commande et affichage :</strong> si le code administrateur est valide et que le code utilisateur correspond, la porte s'ouvre et l'afficheur indique « OU ». En cas d'erreur, la porte reste fermée et l'afficheur indique « FE » tandis que l'alarme est activée.</li>
-            </ol>
-            <div class="tech-title">Focus sur l'objectif 11 : commande d'ouverture de la porte</div>
-            <p>L'objectif 11 consiste à compléter la table de vérité du bloc d'ouverture. La sortie <strong>SP</strong> vaut 1 uniquement lorsque GO_C = 1, GO_M = 1, I1 = 0 et I0 = 1. Pour toutes les autres combinaisons, SP = 0.</p>
-            <div class="alarm-truth-wrap">
-              <div class="alarm-equation">SP = GO_C · GO_M · ¬I1 · I0</div>
-              <table class="alarm-truth-table">
-                <thead><tr><th>GO-C</th><th>GO-M</th><th>I1</th><th>I0</th><th>SP</th></tr></thead>
-                <tbody>
-                  <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
-                  <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
-                  <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
-                  <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr class="active-row"><td>1</td><td>1</td><td>0</td><td>1</td><td><strong>1</strong></td></tr><tr><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
-                </tbody>
-              </table>
-              <p class="alarm-table-note">La ligne mise en évidence correspond à l'unique combinaison qui autorise l'ouverture de la porte.</p>
-            </div>
-            <div class="tech-title">Étapes de conception et de validation</div>
+            <div class="tech-title">Travail réalisé</div>
             <ul>
-              <li>Décomposition du système en blocs fonctionnels : validation du code administrateur, comparaison des codes, génération de l'alarme, commande de la porte et affichage.</li>
+              <li>Analyse du cahier des charges et décomposition du système en blocs fonctionnels : validation du code administrateur, comparaison des codes, commande de la porte et gestion de l'alarme.</li>
               <li>Établissement des tables de vérité et simplification des fonctions logiques à l'aide des tableaux de Karnaugh.</li>
-              <li>Saisie des circuits sous forme de schémas logiques dans Quartus II.</li>
-              <li>Compilation, affectation des broches d'entrées/sorties (Pin Assignment) et simulation des différents blocs.</li>
-              <li>Intégration des blocs dans le schéma global, puis vérification du fonctionnement sur la carte FPGA Altera DE1.</li>
+              <li>Conception des circuits combinatoires et séquentiels sous forme de schémas logiques dans Quartus II.</li>
+              <li>Compilation, affectation des broches d'entrées/sorties et simulation des différents scénarios de fonctionnement.</li>
+              <li>Intégration des blocs et vérification du système sur la carte FPGA Altera DE1.</li>
             </ul>
-            <div class="project-result"><strong>Résultat :</strong> réalisation d'un système complet de contrôle d'accès avec alarme. La compilation et la synthèse sous Quartus II ont abouti avec succès ; le projet a également été vérifié sur la carte Altera DE1.</div>
-            <div class="tags project-tools"><span class="tag">FPGA</span><span class="tag">Altera DE1</span><span class="tag">Cyclone II</span><span class="tag">Quartus II</span><span class="tag">Logique combinatoire</span><span class="tag">Fonctions booléennes</span><span class="tag">Tables de Karnaugh</span><span class="tag">Simulation</span></div>
-            <div class="tech-title">Images de la réalisation</div>
+            <div class="project-result"><strong>Résultat :</strong> réalisation et validation d'un système de contrôle d'accès. L'ouverture est autorisée uniquement lorsque les conditions de validation des codes sont réunies ; dans le cas contraire, la porte reste verrouillée et l'alarme est activée.</div>
+            <div class="tags project-tools"><span class="tag">FPGA</span><span class="tag">Altera DE1</span><span class="tag">Quartus II</span><span class="tag">ModelSim</span><span class="tag">Logique combinatoire</span><span class="tag">Logique séquentielle</span><span class="tag">Tables de vérité</span><span class="tag">Karnaugh</span></div>
+            <div class="tech-title">Illustrations du projet</div>
             <div class="alarm-gallery">
-              <figure><img src="images/alarme-carte-fpga.svg" alt="Carte FPGA DE1 Altera"><figcaption>1. Carte FPGA DE1 utilisée pour l'implémentation</figcaption></figure>
-              <figure><img src="images/alarme-schema-logique.svg" alt="Schéma logique du bloc d'ouverture"><figcaption>2. Schéma logique du bloc d'ouverture de porte</figcaption></figure>
-              <figure><img src="images/alarme-table-verite.svg" alt="Tableau de Karnaugh du bloc logique"><figcaption>3. Tableau de Karnaugh et simplification logique</figcaption></figure>
-              <figure><img src="images/alarme-compilation.svg" alt="Rapport de compilation Quartus II"><figcaption>4. Compilation et synthèse sous Quartus II</figcaption></figure>
+              <figure><img src="images/alarme-carte-fpga.svg" alt="Carte FPGA DE1 Altera"><figcaption>Carte FPGA DE1 utilisée pour l'implémentation</figcaption></figure>
+              <figure><img src="images/alarme-schema-logique.svg" alt="Schéma logique du bloc d'ouverture"><figcaption>Schéma logique du bloc d'ouverture de porte</figcaption></figure>
+              <figure><img src="images/alarme-table-verite.svg" alt="Tableau de Karnaugh du bloc logique"><figcaption>Table de vérité et simplification logique</figcaption></figure>
+              <figure><img src="images/alarme-compilation.svg" alt="Rapport de compilation Quartus II"><figcaption>Compilation et synthèse sous Quartus II</figcaption></figure>
             </div>
-            <div class="project-links"><a class="project-link primary-link" href="https://github.com/khadija-el-halouat/Alarme" target="_blank" rel="noopener">Voir le dépôt du projet</a></div>
           </div>
         </article>
 
